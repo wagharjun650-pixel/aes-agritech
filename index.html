@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AES AGRITECH PRODUCER COMPANY LTD.</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f9f4;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: #2d5a27;
+            color: white;
+            padding: 15px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo-icon {
+            font-size: 2.5rem;
+            color: #8bc34a;
+        }
+        
+        .logo-text h1 {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+        
+        .logo-text p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        
+        nav ul li a:hover, nav ul li a.active {
+            background-color: #8bc34a;
+            color: #2d5a27;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(45, 90, 39, 0.85), rgba(45, 90, 39, 0.9)), url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: #8bc34a;
+            color: #2d5a27;
+            padding: 14px 35px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .cta-button:hover {
+            background-color: #7cb342;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+        }
+        
+        /* Main Content */
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            color: #2d5a27;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 4px;
+            background-color: #8bc34a;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .about-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .about-text {
+            flex: 1;
+            font-size: 1.1rem;
+        }
+        
+        .about-text h3 {
+            color: #2d5a27;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+        
+        /* Services */
+        .services {
+            background-color: #f0f7ed;
+        }
+        
+        .services-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+            text-align: center;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            color: #2d5a27;
+            margin-bottom: 20px;
+        }
+        
+        .service-card h3 {
+            color: #2d5a27;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        /* Registration Form */
+        .registration-form {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #2d5a27;
+            font-weight: 600;
+        }
+        
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .form-row .form-group {
+            flex: 1;
+        }
+        
+        .submit-btn {
+            background-color: #2d5a27;
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: block;
+            margin: 30px auto 0;
+        }
+        
+        .submit-btn:hover {
+            background-color: #8bc34a;
+            color: #2d5a27;
+        }
+        
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .contact-info {
+            background-color: #2d5a27;
+            color: white;
+            padding: 40px;
+            border-radius: 10px;
+        }
+        
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            color: #8bc34a;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+        }
+        
+        .contact-icon {
+            font-size: 1.5rem;
+            margin-right: 15px;
+            color: #8bc34a;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #1e3a1a;
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-logo h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #8bc34a;
+        }
+        
+        .footer-links h4, .footer-social h4 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: #8bc34a;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links ul li a:hover {
+            color: #8bc34a;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: #2d5a27;
+            color: white;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            background-color: #8bc34a;
+            color: #2d5a27;
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #2d5a27;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        /* Page Content */
+        .page-content {
+            min-height: 60vh;
+            padding: 80px 0;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: #2d5a27;
+                flex-direction: column;
+                padding: 20px 0;
+                box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 0;
+                text-align: center;
+            }
+            
+            nav ul li a {
+                display: block;
+                padding: 15px;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero {
+                padding: 70px 0;
+            }
+            
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+            
+            .registration-form, .contact-info {
+                padding: 25px;
+            }
+            
+            .section {
+                padding: 60px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-tractor"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>AES AGRITECH PRODUCER COMPANY LTD.</h1>
+                    <p>शेतीची प्रगती, शेतकऱ्याची समृद्धी</p>
+                </div>
+            </div>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="index.html" class="active"><i class="fas fa-home"></i> मुख्यपृष्ठ</a></li>
+                    <li><a href="about.html"><i class="fas fa-info-circle"></i> आमच्याबद्दल</a></li>
+                    <li><a href="services.html"><i class="fas fa-seedling"></i> आमच्या सेवा</a></li>
+                    <li><a href="registration.html"><i class="fas fa-user-plus"></i> सभासद नोंदणी</a></li>
+                    <li><a href="contact.html"><i class="fas fa-address-book"></i> संपर्क</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h2>AES AGRITECH PRODUCER COMPANY LTD.</h2>
+            <p>शेतकरी उत्पादक कंपनी म्हणून आम्ही शेतकऱ्यांच्या आर्थिक व सामाजिक उन्नतीसाठी समर्पित आहोत. आधुनिक शेती तंत्रज्ञान, बाजारपेठ संपर्क आणि गुणवत्तापूर्ण उत्पादनासाठी आमच्या सोबत सहभागी व्हा.</p>
+            <a href="registration.html" class="cta-button">सभासद नोंदणी करा</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="container">
+            <h2 class="section-title">आमच्याबद्दल</h2>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="AES Agritech Team">
+                </div>
+                <div class="about-text">
+                    <h3>शेतकऱ्यांच्या प्रगतीसाठी समर्पित</h3>
+                    <p>AES AGRITECH PRODUCER COMPANY LTD. ही शेतकरी उत्पादक कंपनी २०१५ साली स्थापन करण्यात आली. आमचे मुख्य उद्दीष्ट शेतकऱ्यांना आधुनिक शेती तंत्रज्ञान, गुणवत्तापूर्ण बियाणे, खते, कीटकनाशके पुरविणे आणि त्यांच्या उत्पादनासाठी योग्य बाजारपेठ उपलब्ध करून देणे हे आहे.</p>
+                    <p>आमच्या कंपनीत सध्या ५००हून अधिक शेतकरी सभासद आहेत. आम्ही जैविक शेती, पिक संरक्षण, पाण्याचे व्यवस्थापन, शेती उपकरणे विक्री व भाडे, उत्पादन संकलन आणि विपणन सेवा पुरवतो.</p>
+                    <p>आमचा ध्येयवाक्य आहे - "शेतीत नवीन तंत्रज्ञान, शेतकऱ्याचे नवीन भविष्य".</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section services" id="services">
+        <div class="container">
+            <h2 class="section-title">आमच्या सेवा</h2>
+            <div class="services-container">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-tractor"></i>
+                    </div>
+                    <h3>आधुनिक शेती उपकरणे</h3>
+                    <p>आधुनिक शेती उपकरणांची विक्री व भाड्याने देणे. ट्रॅक्टर, हार्वेस्टर, ड्रिप इरिगेशन सिस्टीम इत्यादी.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <h3>गुणवत्तापूर्ण बियाणे व खते</h3>
+                    <p>प्रमाणित व उच्च उत्पादन क्षमता असलेल्या बियाण्यांची व खतांची पुरवठा. जैविक खते व कीटकनाशके.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>शेती प्रशिक्षण</h3>
+                    <p>आधुनिक शेती पद्धती, जैविक शेती, पाण्याचे व्यवस्थापन, पिक संरक्षण यावर प्रशिक्षण कार्यशाळा.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h3>बाजारपेठ संपर्क</h3>
+                    <p>शेतकऱ्यांच्या उत्पादनासाठी थेट बाजारपेठ संपर्क. मोबदला मिळवण्यासाठी मदत.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-hand-holding-usd"></i>
+                    </div>
+                    <h3>आर्थिक मदत</h3>
+                    <p>शेती कर्ज, सबसिडी मार्गदर्शन, विमा योजना, सरकारी योजनांबद्दल माहिती व मदत.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h3>वाहतूक सुविधा</h3>
+                    <p>उत्पादनाची गोदामापर्यंत वाहतूक आणि कोल्ड स्टोरेज सुविधा.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration Section -->
+    <section class="section" id="registration">
+        <div class="container">
+            <h2 class="section-title">सभासद नोंदणी</h2>
+            <div class="registration-form">
+                <form id="memberRegistrationForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="fullName">पूर्ण नाव *</label>
+                            <input type="text" id="fullName" name="fullName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="fatherName">वडिलांचे नाव</label>
+                            <input type="text" id="fatherName" name="fatherName">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="mobile">मोबाइल नंबर *</label>
+                            <input type="tel" id="mobile" name="mobile" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">ईमेल</label>
+                            <input type="email" id="email" name="email">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="village">गाव *</label>
+                            <input type="text" id="village" name="village" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="taluka">तालुका *</label>
+                            <input type="text" id="taluka" name="taluka" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="district">जिल्हा *</label>
+                            <input type="text" id="district" name="district" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="pincode">पिनकोड *</label>
+                            <input type="text" id="pincode" name="pincode" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="landArea">एकूण शेतजमीन क्षेत्र (एकर) *</label>
+                            <input type="number" id="landArea" name="landArea" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="mainCrop">मुख्य पीक</label>
+                            <select id="mainCrop" name="mainCrop">
+                                <option value="">निवडा</option>
+                                <option value="गहू">गहू</option>
+                                <option value="बाजरी">बाजरी</option>
+                                <option value="ज्वारी">ज्वारी</option>
+                                <option value="कापूस">कापूस</option>
+                                <option value="सोयाबीन">सोयाबीन</option>
+                                <option value="ऊस">ऊस</option>
+                                <option value="भुईमूग">भुईमूग</option>
+                                <option value="इतर">इतर</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="servicesInterest">कोणत्या सेवांमध्ये तुमची रूची आहे?</label>
+                        <textarea id="servicesInterest" name="servicesInterest" rows="3" placeholder="उदा: बियाणे खरेदी, शेती उपकरणे भाडे, बाजारपेठ संपर्क इ."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">नोंदणी सबमिट करा</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section" id="contact">
+        <div class="container">
+            <h2 class="section-title">संपर्क</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>आमची संपर्क माहिती</h3>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h4>पत्ता</h4>
+                            <p>AES AGRITECH PRODUCER COMPANY LTD.<br>
+                            कृषी विकास केंद्र, नाशिक रोड,<br>
+                            अहमदनगर, महाराष्ट्र ४१४००१</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div>
+                            <h4>फोन नंबर</h4>
+                            <p>+९१ २४० २३४५६७८<br>
+                            +९१ ९८७६५४३२१० (मोबाइल)</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h4>ईमेल</h4>
+                            <p>info@aesagritech.com<br>
+                            support@aesagritech.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div>
+                            <h4>कार्यालयीन वेळ</h4>
+                            <p>सोमवार ते शनिवार: सकाळी १० ते संध्याकाळी ६<br>
+                            रविवार: सुट्टी</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="registration-form">
+                    <h3 style="color: #2d5a27; margin-bottom: 25px; text-align: center;">संपर्क फॉर्म</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="contactName">तुमचे नाव *</label>
+                            <input type="text" id="contactName" name="contactName" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="contactEmail">ईमेल *</label>
+                            <input type="email" id="contactEmail" name="contactEmail" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="contactMobile">मोबाइल नंबर *</label>
+                            <input type="tel" id="contactMobile" name="contactMobile" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="contactSubject">विषय</label>
+                            <input type="text" id="contactSubject" name="contactSubject">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="contactMessage">संदेश *</label>
+                            <textarea id="contactMessage" name="contactMessage" rows="5" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">संदेश पाठवा</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-logo">
+                    <h3>AES AGRITECH</h3>
+                    <p>PRODUCER COMPANY LTD.</p>
+                    <p style="margin-top: 15px;">शेतीची प्रगती, शेतकऱ्याची समृद्धी</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>द्रुत लिंक</h4>
+                    <ul>
+                        <li><a href="index.html">मुख्यपृष्ठ</a></li>
+                        <li><a href="about.html">आमच्याबद्दल</a></li>
+                        <li><a href="services.html">आमच्या सेवा</a></li>
+                        <li><a href="registration.html">सभासद नोंदणी</a></li>
+                        <li><a href="contact.html">संपर्क</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>आमच्या सेवा</h4>
+                    <ul>
+                        <li><a href="#">शेती उपकरणे</a></li>
+                        <li><a href="#">बियाणे व खते</a></li>
+                        <li><a href="#">प्रशिक्षण कार्यशाळा</a></li>
+                        <li><a href="#">बाजारपेठ संपर्क</a></li>
+                        <li><a href="#">आर्थिक मदत</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-social">
+                    <h4>सोशल मीडिया</h4>
+                    <p>आमच्याशी सोशल मीडियावर कनेक्ट रहा</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>© 2023 AES AGRITECH PRODUCER COMPANY LTD. सर्व हक्क राखीव.</p>
+                <p>वेबसाइट डिझाईन आणि विकास: AES आयटी विभाग</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('show');
+            mobileMenuBtn.innerHTML = navMenu.classList.contains('show') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Form submission handling
+        document.getElementById('memberRegistrationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('धन्यवाद! तुमची नोंदणी यशस्वीरित्या सबमिट झाली आहे. आम्ही लवकरच तुमच्याशी संपर्क साधू.');
+            this.reset();
+        });
+        
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('धन्यवाद! तुमचा संदेश यशस्वीरित्या पाठवला गेला आहे. आम्ही लवकरच तुमच्याशी संपर्क साधू.');
+            this.reset();
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                if(this.getAttribute('href') === '#') return;
+                
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    navMenu.classList.remove('show');
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                }
+            });
+        });
+        
+        // Highlight active navigation item based on scroll position
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('nav ul li a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if(scrollY >= (sectionTop - 100)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if(link.getAttribute('href').includes(current)) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
