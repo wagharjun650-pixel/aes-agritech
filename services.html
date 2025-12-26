@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>आमच्या सेवा - AES AGRITECH</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: #f5f9f4; color: #333; line-height: 1.6; }
+        .container { width: 90%; max-width: 1200px; margin: 0 auto; padding: 0 15px; }
+        
+        header {
+            background-color: #2d5a27;
+            color: white;
+            padding: 15px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo-icon {
+            font-size: 2.5rem;
+            color: #8bc34a;
+        }
+        
+        .logo-text h1 {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        
+        nav ul li a:hover, nav ul li a.active {
+            background-color: #8bc34a;
+            color: #2d5a27;
+        }
+        
+        .page-header {
+            background: linear-gradient(rgba(45, 90, 39, 0.9), rgba(45, 90, 39, 0.9)), url('https://images.unsplash.com/photo-1591288445826-855b73d6e994?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .services-section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            color: #2d5a27;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 4px;
+            background-color: #8bc34a;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .services-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .service-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .service-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .service-card:hover .service-image img {
+            transform: scale(1.1);
+        }
+        
+        .service-content {
+            padding: 30px;
+        }
+        
+        .service-icon {
+            font-size: 2.5rem;
+            color: #2d5a27;
+            margin-bottom: 20px;
+        }
+        
+        .service-content h3 {
+            color: #2d5a27;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+        
+        .service-features {
+            list-style: none;
+            margin-top: 20px;
+        }
+        
+        .service-features li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .service-features li i {
+            color: #8bc34a;
+        }
+        
+        .service-cta {
+            display: inline-block;
+            background-color: #2d5a27;
+            color: white;
+            padding: 10px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .service-cta:hover {
+            background-color: #8bc34a;
+        }
+        
+        footer {
+            background-color: #1e3a1a;
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #2d5a27;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-tractor"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>AES AGRITECH PRODUCER COMPANY LTD.</h1>
+                </div>
+            </div>
+            
+            <nav>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> मुख्यपृष्ठ</a></li>
+                    <li><a href="about.html"><i class="fas fa-info-circle"></i> आमच्याबद्दल</a></li>
+                    <li><a href="services.html" class="active"><i class="fas fa-seedling"></i> आमच्या सेवा</a></li>
+                    <li><a href="registration.html"><i class="fas fa-user-plus"></i> सभासद नोंदणी</a></li>
+                    <li><a href="contact.html"><i class="fas fa-address-book"></i> संपर्क</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>आमच्या सेवा</h1>
+            <p>शेतकऱ्यांसाठी संपूर्ण शेती समाधान</p>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section">
+        <div class="container">
+            <h2 class="section-title">आमच्या सर्व सेवा</h2>
+            
+            <div class="services-container">
+                <!-- Service 1 -->
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1591288445826-855b73d6e994?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="शेती उपकरणे">
+                    </div>
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-tractor"></i>
+                        </div>
+                        <h3>शेती उपकरणे सेवा</h3>
+                        <p>आधुनिक शेती उपकरणांची विक्री, भाडे आणि दुरुस्ती सेवा</p>
+                        
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> ट्रॅक्टर भाडे</li>
+                            <li><i class="fas fa-check"></i> हार्वेस्टर सेवा</li>
+                            <li><i class="fas fa-check"></i> ड्रिप इरिगेशन सिस्टीम</li>
+                            <li><i class="fas fa-check"></i> उपकरणे दुरुस्ती</li>
+                        </ul>
+                        
+                        <a href="contact.html" class="service-cta">संपर्क करा</a>
+                    </div>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1598808503746-f34c53b9323b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="बियाणे व खते">
+                    </div>
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-seedling"></i>
+                        </div>
+                        <h3>बियाणे व खते</h3>
+                        <p>गुणवत्तापूर्ण बियाणे, जैविक खते आणि कीटकनाशके</p>
+                        
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> प्रमाणित बियाणे</li>
+                            <li><i class="fas fa-check"></i> जैविक खते</li>
+                            <li><i class="fas fa-check"></i> कीटकनाशके</li>
+                            <li><i class="fas fa-check"></i> मार्केटिंग सपोर्ट</li>
+                        </ul>
+                        
+                        <a href="contact.html" class="service-cta">ऑर्डर करा</a>
+                    </div>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1586771107445-d3ca888129fc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="प्रशिक्षण">
+                    </div>
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3>शेती प्रशिक्षण</h3>
+                        <p>आधुनिक शेती तंत्रज्ञानावर प्रशिक्षण कार्यशाळा</p>
+                        
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> जैविक शेती</li>
+                            <li><i class="fas fa-check"></i> पाणी व्यवस्थापन</li>
+                            <li><i class="fas fa-check"></i> पिक संरक्षण</li>
+                            <li><i class="fas fa-check"></i> डिजिटल शेती</li>
+                        </ul>
+                        
+                        <a href="contact.html" class="service-cta">नोंदणी करा</a>
+                    </div>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="बाजार संपर्क">
+                    </div>
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <h3>बाजार संपर्क</h3>
+                        <p>उत्पादनासाठी थेट बाजारपेठ संपर्क आणि मोबदला</p>
+                        
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> थेट विक्री</li>
+                            <li><i class="fas fa-check"></i> कॉन्ट्रॅक्ट फार्मिंग</li>
+                            <li><i class="fas fa-check"></i> एक्सपोर्ट सपोर्ट</li>
+                            <li><i class="fas fa-check"></i> प्राईस नेगोशिएशन</li>
+                        </ul>
+                        
+                        <a href="contact.html" class="service-cta">सविस्तर माहिती</a>
+                    </div>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="आर्थिक मदत">
+                    </div>
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-hand-holding-usd"></i>
+                        </div>
+                        <h3>आर्थिक मदत</h3>
+                        <p>शेती कर्ज, सबसिडी आणि विमा योजनांसाठी मार्गदर्शन</p>
+                        
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> बँक लिंकेज</li>
+                            <li><i class="fas fa-check"></i> सरकारी योजना</li>
+                            <li><i class="fas fa-check"></i> क्रॉप इन्शुरन्स</li>
+                            <li><i class="fas fa-check"></i> सबसिडी मार्गदर्शन</li>
+                        </ul>
+                        
+                        <a href="contact.html" class="service-cta">अर्ज करा</a>
+                    </div>
+                </div>
+                
+                <!-- Service 6 -->
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="वाहतूक">
+                    </div>
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-truck"></i>
+                        </div>
+                        <h3>वाहतूक सुविधा</h3>
+                        <p>उत्पादन वाहतूक, कोल्ड स्टोरेज आणि पॅकेजिंग</p>
+                        
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> उत्पादन वाहतूक</li>
+                            <li><i class="fas fa-check"></i> कोल्ड स्टोरेज</li>
+                            <li><i class="fas fa-check"></i> पॅकेजिंग</li>
+                            <li><i class="fas fa-check"></i> गोदाम सुविधा</li>
+                        </ul>
+                        
+                        <a href="contact.html" class="service-cta">बुकिंग करा</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-logo">
+                    <h3>AES AGRITECH</h3>
+                    <p>शेतकऱ्यांच्या प्रगतीसाठी समर्पित</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>सेवा</h4>
+                    <ul>
+                        <li><a href="#">शेती उपकरणे</a></li>
+                        <li><a href="#">बियाणे व खते</a></li>
+                        <li><a href="#">प्रशिक्षण</a></li>
+                        <li><a href="#">बाजार संपर्क</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>संपर्क</h4>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> अहमदनगर, महाराष्ट्र</li>
+                        <li><i class="fas fa-phone"></i> +९१ २४० २३४५६७८</li>
+                        <li><i class="fas fa-envelope"></i> info@aesagritech.com</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>© 2023 AES AGRITECH PRODUCER COMPANY LTD. | सर्व सेवा राखीव</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
