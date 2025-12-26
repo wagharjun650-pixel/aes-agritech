@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>सभासद नोंदणी - AES AGRITECH</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: #f5f9f4; color: #333; line-height: 1.6; }
+        .container { width: 90%; max-width: 1200px; margin: 0 auto; padding: 0 15px; }
+        
+        header {
+            background-color: #2d5a27;
+            color: white;
+            padding: 15px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo-icon {
+            font-size: 2.5rem;
+            color: #8bc34a;
+        }
+        
+        .logo-text h1 {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        
+        nav ul li a:hover, nav ul li a.active {
+            background-color: #8bc34a;
+            color: #2d5a27;
+        }
+        
+        .page-header {
+            background: linear-gradient(rgba(45, 90, 39, 0.9), rgba(45, 90, 39, 0.9)), url('https://images.unsplash.com/photo-1586771107445-d3ca888129fc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .registration-section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            color: #2d5a27;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 4px;
+            background-color: #8bc34a;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .registration-container {
+            display: flex;
+            gap: 50px;
+            align-items: flex-start;
+        }
+        
+        .benefits-box {
+            flex: 1;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .benefits-box h3 {
+            color: #2d5a27;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+        
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .benefit-item i {
+            color: #8bc34a;
+            font-size: 1.2rem;
+            margin-top: 3px;
+        }
+        
+        .registration-form {
+            flex: 2;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #2d5a27;
+            font-weight: 600;
+        }
+        
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border 0.3s ease;
+        }
+        
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            border-color: #8bc34a;
+            outline: none;
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .form-row .form-group {
+            flex: 1;
+        }
+        
+        .submit-btn {
+            background-color: #2d5a27;
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: block;
+            width: 100%;
+            margin-top: 20px;
+        }
+        
+        .submit-btn:hover {
+            background-color: #8bc34a;
+        }
+        
+        .success-message {
+            background-color: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+            display: none;
+        }
+        
+        footer {
+            background-color: #1e3a1a;
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #2d5a27;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-tractor"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>AES AGRITECH PRODUCER COMPANY LTD.</h1>
+                </div>
+            </div>
+            
+            <nav>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> मुख्यपृष्ठ</a></li>
+                    <li><a href="about.html"><i class="fas fa-info-circle"></i> आमच्याबद्दल</a></li>
+                    <li><a href="services.html"><i class="fas fa-seedling"></i> आमच्या सेवा</a></li>
+                    <li><a href="registration.html" class="active"><i class="fas fa-user-plus"></i> सभासद नोंदणी</a></li>
+                    <li><a href="contact.html"><i class="fas fa-address-book"></i> संपर्क</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>सभासद नोंदणी</h1>
+            <p>AES AGRITECH चे सभासद व्हा आणि शेतीतील संधी मिळवा</p>
+        </div>
+    </section>
+
+    <!-- Registration Section -->
+    <section class="registration-section">
+        <div class="container">
+            <h2 class="section-title">नोंदणी फॉर्म</h2>
+            
+            <div class="registration-container">
+                <!-- Benefits Box -->
+                <div class="benefits-box">
+                    <h3>सभासद होण्याचे फायदे</h3>
+                    
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <div>
+                            <h4>सवलतीचे दर</h4>
+                            <p>बियाणे, खते आणि उपकरणे सवलतीच्या दरात</p>
+                        </div>
+                    </div>
+                    
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <div>
+                            <h4>तांत्रिक मार्गदर्शन</h4>
+                            <p>निःशुल्क शेती तंत्रज्ञान मार्गदर्शन</p>
+                        </div>
+                    </div>
+                    
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <div>
+                            <h4>बाजारपेठ संपर्क</h4>
+                            <p>थेट बाजारपेठ संपर्क आणि चांगला मोबदला</p>
+                        </div>
+                    </div>
+                    
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <div>
+                            <h4>आर्थिक मदत</h4>
+                            <p>शेती कर्ज आणि सबसिडी मार्गदर्शन</p>
+                        </div>
+                    </div>
+                    
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <div>
+                            <h4>विमा सुविधा</h4>
+                            <p>पिक विमा आणि दुर्घटना विमा</p>
+                        </div>
+                    </div>
+                    
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <div>
+                            <h4>प्रशिक्षण</h4>
+                            <p>नियमित शेती प्रशिक्षण कार्यशाळा</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Registration Form -->
+                <div class="registration-form">
+                    <form id="memberRegistrationForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="fullName">पूर्ण नाव *</label>
+                                <input type="text" id="fullName" name="fullName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="fatherName">वडिलांचे नाव *</label>
+                                <input type="text" id="fatherName" name="fatherName" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="mobile">मोबाइल नंबर *</label>
+                                <input type="tel" id="mobile" name="mobile" pattern="[0-9]{10}" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="aadhar">आधार कार्ड नंबर *</label>
+                                <input type="text" id="aadhar" name="aadhar" pattern="[0-9]{12}" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="village">गाव *</label>
+                                <input type="text" id="village" name="village" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="taluka">तालुका *</label>
+                                <input type="text" id="taluka" name="taluka" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="district">जिल्हा *</label>
+                                <input type="text" id="district" name="district" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="pincode">पिनकोड *</label>
+                                <input type="text" id="pincode" name="pincode" pattern="[0-9]{6}" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="landArea">एकूण शेतजमीन क्षेत्र (एकर) *</label>
+                                <input type="number" id="landArea" name="landArea" min="0.1" step="0.1" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="mainCrop">मुख्य पीक *</label>
+                                <select id="mainCrop" name="mainCrop" required>
+                                    <option value="">निवडा</option>
+                                    <option value="गहू">गहू</option>
+                                    <option value="बाजरी">बाजरी</option>
+                                    <option value="ज्वारी">ज्वारी</option>
+                                    <option value="कापूस">कापूस</option>
+                                    <option value="सोयाबीन">सोयाबीन</option>
+                                    <option value="ऊस">ऊस</option>
+                                    <option value="भुईमूग">भुईमूग</option>
+                                    <option value="इतर">इतर</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="servicesInterest">कोणत्या सेवांमध्ये रूची आहे? *</label>
+                            <textarea id="servicesInterest" name="servicesInterest" rows="3" required placeholder="उदा: बियाणे खरेदी, शेती उपकरणे भाडे, बाजारपेठ संपर्क इ."></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="experience">शेती अनुभव (वर्षे)</label>
+                            <input type="number" id="experience" name="experience" min="0" max="100">
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">
+                            <i class="fas fa-paper-plane"></i> नोंदणी सबमिट करा
+                        </button>
+                        
+                        <div id="successMessage" class="success-message">
+                            <i class="fas fa-check-circle"></i> धन्यवाद! तुमची नोंदणी यशस्वीरित्या सबमिट झाली आहे. आम्ही लवकरच तुमच्याशी संपर्क साधू.
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="copyright">
+                <p>© 2023 AES AGRITECH PRODUCER COMPANY LTD. | सर्व हक्क राखीव</p>
+                <p>कृषी विकास केंद्र, नाशिक रोड, अहमदनगर | फोन: +९१ २४० २३४५६७८</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Google Sheets Integration Script -->
+    <script>
+        // Google Apps Script Web App URL (तुम्हाला हे तयार करावे लागेल)
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/exec';
+        
+        document.getElementById('memberRegistrationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Form data collect करा
+            const formData = new FormData(this);
+            const data = {};
+            formData.forEach((value, key) => {
+                data[key] = value;
+            });
+            
+            // Timestamp add करा
+            data.timestamp = new Date().toLocaleString('mr-IN');
+            
+            // Submit button disable करा
+            const submitBtn = document.querySelector('.submit-btn');
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> प्रक्रिया होत आहे...';
+            
+            // Google Sheets कडे data पाठवा
+            fetch(GOOGLE_SCRIPT_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data)
+            })
+            .then(() => {
+                // Success message दाखवा
+                document.getElementById('successMessage').style.display = 'block';
+                
+                // Form reset करा
+                this.reset();
+                
+                // Success message 5 सेकंदांनी हटवा
+                setTimeout(() => {
+                    document.getElementById('successMessage').style.display = 'none';
+                }, 5000);
+            })
+            .catch(error => {
+                alert('त्रुटी: डेटा सेव्ह करताना समस्या आली. कृपया पुन्हा प्रयत्न करा.');
+                console.error('Error:', error);
+            })
+            .finally(() => {
+                // Button enable करा
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> नोंदणी सबमिट करा';
+            });
+        });
+    </script>
+</body>
+</html>
