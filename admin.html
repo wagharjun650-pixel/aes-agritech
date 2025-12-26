@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin - AES AGRITECH</title>
+    <style>
+        table { width: 100%; border-collapse: collapse; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #2d5a27; color: white; }
+    </style>
+</head>
+<body>
+    <h1>सभासद नोंदणी डेटा</h1>
+    <div id="dataContainer"></div>
+    
+    <script>
+        // Google Sheets JSON URL (पब्लिक केल्यास)
+        const SHEET_URL = 'https://docs.google.com/spreadsheets/d/YOUR_SHEET_ID/gviz/tq?tqx=out:json';
+        
+        fetch(SHEET_URL)
+            .then(res => res.text())
+            .then(text => {
+                const json = JSON.parse(text.substr(47).slice(0, -2));
+                const rows = json.table.rows;
+                
+                let html = '<table>';
+                html += '<tr><th>तारीख</th><th>नाव</th><th>मोबाइल</th><th>गाव</th><th>जमीन</th><th>पीक</th></tr>';
+                
+                rows.forEach(row => {
+                    html += `<tr>
+                        <td>${row.c[0]?.v || ''}</td>
+                        <td>${row.c[1]?.v || ''}</td>
+                        <td>${row.c[3]?.v || ''}</td>
+                        <td>${row.c[5]?.v || ''}</td>
+                        <td>${row.c[9]?.v || ''}</td>
+                        <td>${row.c[10]?.v || ''}</td>
+                    </tr>`;
+                });
+                
+                html += '</table>';
+                document.getElementById('dataContainer').innerHTML = html;
+            });
+    </script>
+</body>
+</html>
