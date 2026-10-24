@@ -3,384 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AES AGRITECH PRODUCER COMPANY LTD.</title>
+    <title>धान्य खरेदी-विक्री, वाहतूक, साठवण व ॲग्री इनपुट्स | AES Agritech, जालना</title>
+    <meta name="description" content="जालना येथील AES Agritech Producer Company Ltd. - धान्य ट्रेडिंग (खरेदी-विक्री), धान्य वाहतूक, धान्य साठवण आणि मल्चिंग पेपर, ॲग्रील व शेती टूल्स. तुमचे धान्य विका किंवा शेती साहित्य खरेदी करा.">
+    <meta name="theme-color" content="#2d5a27">
+    <link rel="canonical" href="https://aesagritech.com/">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌾</text></svg>">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="धान्य खरेदी-विक्री, वाहतूक, साठवण व ॲग्री इनपुट्स | AES Agritech, जालना">
+    <meta property="og:description" content="जालना येथील AES Agritech Producer Company Ltd. - धान्य ट्रेडिंग (खरेदी-विक्री), धान्य वाहतूक, धान्य साठवण आणि मल्चिंग पेपर, ॲग्रील व शेती टूल्स. तुमचे धान्य विका किंवा शेती साहित्य खरेदी करा.">
+    <meta property="og:url" content="https://aesagritech.com/">
+    <meta property="og:locale" content="mr_IN">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background-color: #f5f9f4;
-            color: #333;
-            line-height: 1.6;
-        }
-        
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
-        
-        /* Header Styles */
-        header {
-            background-color: #2d5a27;
-            color: white;
-            padding: 15px 0;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-        
-        .logo-icon {
-            font-size: 2.5rem;
-            color: #8bc34a;
-        }
-        
-        .logo-text h1 {
-            font-size: 1.8rem;
-            margin-bottom: 5px;
-        }
-        
-        .logo-text p {
-            font-size: 0.9rem;
-            opacity: 0.9;
-        }
-        
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-        
-        nav ul li {
-            margin-left: 25px;
-        }
-        
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
-            padding: 8px 12px;
-            border-radius: 4px;
-            transition: all 0.3s ease;
-        }
-        
-        nav ul li a:hover, nav ul li a.active {
-            background-color: #8bc34a;
-            color: #2d5a27;
-        }
-        
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-        
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(rgba(45, 90, 39, 0.85), rgba(45, 90, 39, 0.9)), url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            padding: 100px 0;
-            text-align: center;
-        }
-        
-        .hero h2 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        }
-        
-        .hero p {
-            font-size: 1.3rem;
-            max-width: 800px;
-            margin: 0 auto 30px;
-        }
-        
-        .cta-button {
-            display: inline-block;
-            background-color: #8bc34a;
-            color: #2d5a27;
-            padding: 14px 35px;
-            font-size: 1.2rem;
-            font-weight: bold;
-            text-decoration: none;
-            border-radius: 50px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        }
-        
-        .cta-button:hover {
-            background-color: #7cb342;
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
-        }
-        
-        /* Features Section */
-        .features {
-            padding: 80px 0;
-        }
-        
-        .section-title {
-            text-align: center;
-            color: #2d5a27;
-            font-size: 2.5rem;
-            margin-bottom: 50px;
-            position: relative;
-        }
-        
-        .section-title:after {
-            content: '';
-            position: absolute;
-            width: 100px;
-            height: 4px;
-            background-color: #8bc34a;
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-        
-        .feature-card {
-            background: white;
-            border-radius: 10px;
-            padding: 30px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            text-align: center;
-            transition: transform 0.3s ease;
-        }
-        
-        .feature-card:hover {
-            transform: translateY(-10px);
-        }
-        
-        .feature-icon {
-            font-size: 3rem;
-            color: #2d5a27;
-            margin-bottom: 20px;
-        }
-        
-        .feature-card h3 {
-            color: #2d5a27;
-            margin-bottom: 15px;
-            font-size: 1.5rem;
-        }
-        
-        /* Services Preview */
-        .services-preview {
-            background-color: #f0f7ed;
-            padding: 80px 0;
-        }
-        
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-            margin-top: 40px;
-        }
-        
-        .service-item {
-            background: white;
-            padding: 25px;
-            border-radius: 8px;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-        
-        .service-item i {
-            color: #2d5a27;
-            font-size: 1.5rem;
-        }
-        
-        /* Stats Section */
-        .stats {
-            padding: 60px 0;
-            text-align: center;
-        }
-        
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-        
-        .stat-item h3 {
-            font-size: 2.5rem;
-            color: #2d5a27;
-            margin-bottom: 10px;
-        }
-        
-        /* Footer */
-        footer {
-            background-color: #1e3a1a;
-            color: white;
-            padding: 60px 0 30px;
-        }
-        
-        .footer-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-        
-        .footer-logo h3 {
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-            color: #8bc34a;
-        }
-        
-        .footer-links h4, .footer-social h4 {
-            font-size: 1.3rem;
-            margin-bottom: 20px;
-            color: #8bc34a;
-        }
-        
-        .footer-links ul {
-            list-style: none;
-        }
-        
-        .footer-links ul li {
-            margin-bottom: 10px;
-        }
-        
-        .footer-links ul li a {
-            color: #ddd;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        
-        .footer-links ul li a:hover {
-            color: #8bc34a;
-        }
-        
-        .social-icons {
-            display: flex;
-            gap: 15px;
-        }
-        
-        .social-icons a {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background-color: #2d5a27;
-            color: white;
-            border-radius: 50%;
-            font-size: 1.2rem;
-            transition: all 0.3s ease;
-        }
-        
-        .social-icons a:hover {
-            background-color: #8bc34a;
-            color: #2d5a27;
-            transform: translateY(-3px);
-        }
-        
-        .copyright {
-            text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid #2d5a27;
-            color: #aaa;
-            font-size: 0.9rem;
-        }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            nav ul {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background-color: #2d5a27;
-                flex-direction: column;
-                padding: 20px 0;
-            }
-            
-            nav ul.show {
-                display: flex;
-            }
-            
-            nav ul li {
-                margin: 0;
-                text-align: center;
-            }
-            
-            nav ul li a {
-                display: block;
-                padding: 15px;
-            }
-            
-            .mobile-menu-btn {
-                display: block;
-            }
-            
-            .hero h2 {
-                font-size: 2rem;
-            }
-            
-            .hero p {
-                font-size: 1.1rem;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "AES Agritech Producer Company Ltd.",
+      "url": "https://aesagritech.com/",
+      "description": "धान्य ट्रेडिंग, धान्य वाहतूक, धान्य साठवण आणि ॲग्री इनपुट्स पुरवठा - जालना",
+      "telephone": "+91-8275424071",
+      "email": "aesagritech@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "गोंदेगाव, जालना - देऊळगाव राजा रोड",
+        "addressLocality": "जालना",
+        "addressRegion": "महाराष्ट्र",
+        "addressCountry": "IN"
+      }
+    }
+    </script>
 </head>
 <body>
-    <!-- Header -->
     <header>
         <div class="container header-container">
-            <div class="logo">
-                <div class="logo-icon">
-                    <i class="fas fa-tractor"></i>
-                </div>
+            <a href="index.html" class="logo" aria-label="AES AGRITECH मुख्यपृष्ठ">
+                <div class="logo-icon"><i class="fas fa-tractor"></i></div>
                 <div class="logo-text">
                     <h1>AES AGRITECH PRODUCER COMPANY LTD.</h1>
                     <p>शेतीची प्रगती, शेतकऱ्याची समृद्धी</p>
                 </div>
-            </div>
-            
-            <button class="mobile-menu-btn" id="mobileMenuBtn">
-                <i class="fas fa-bars"></i>
-            </button>
-            
-            <nav>
+            </a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="मेनू उघडा / बंद करा" aria-expanded="false"><i class="fas fa-bars"></i></button>
+            <nav aria-label="मुख्य मेनू">
                 <ul id="navMenu">
-                    <li><a href="index.html" class="active"><i class="fas fa-home"></i> मुख्यपृष्ठ</a></li>
+                    <li><a href="index.html" class="active" aria-current="page"><i class="fas fa-home"></i> मुख्यपृष्ठ</a></li>
+                    <li><a href="grain.html"><i class="fas fa-wheat-awn"></i> धान्य ट्रेडिंग</a></li>
+                    <li><a href="inputs.html"><i class="fas fa-toolbox"></i> ॲग्री इनपुट्स</a></li>
+                    <li><a href="services.html"><i class="fas fa-truck"></i> आमच्या सेवा</a></li>
                     <li><a href="about.html"><i class="fas fa-info-circle"></i> आमच्याबद्दल</a></li>
-                    <li><a href="services.html"><i class="fas fa-seedling"></i> आमच्या सेवा</a></li>
                     <li><a href="registration.html"><i class="fas fa-user-plus"></i> सभासद नोंदणी</a></li>
                     <li><a href="contact.html"><i class="fas fa-address-book"></i> संपर्क</a></li>
                 </ul>
@@ -388,167 +62,150 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <h2>शेतकऱ्यांच्या प्रगतीसाठी समर्पित</h2>
-            <p>AES AGRITECH PRODUCER COMPANY LTD. ही शेतकरी उत्पादक कंपनी शेतकऱ्यांना आधुनिक शेती तंत्रज्ञान, बाजारपेठ संपर्क आणि गुणवत्तापूर्ण उत्पादनासाठी संपूर्ण मदत करते.</p>
-            <a href="registration.html" class="cta-button">सभासद नोंदणी करा</a>
+            <span class="badge"><i class="fas fa-wheat-awn"></i> शेतकऱ्यांची स्वतःची कंपनी, जालना</span>
+            <h2>तुमचे धान्य विका, धान्य खरेदी करा,<br>शेती साहित्य मिळवा - एकाच ठिकाणी</h2>
+            <p>AES AGRITECH PRODUCER COMPANY LTD. - धान्य ट्रेडिंग, धान्य वाहतूक, धान्य साठवण आणि शेतीसाठी लागणारे साहित्य, सगळं एकाच कंपनीकडे.</p>
+            <div class="hero-actions">
+                <a href="grain.html?type=sell" class="cta-button"><i class="fas fa-wheat-awn"></i> माझे धान्य विकायचे आहे</a>
+                <a href="grain.html?type=buy" class="cta-button cta-white"><i class="fas fa-cart-shopping"></i> धान्य खरेदी करायचे आहे</a>
+                <a href="inputs.html" class="cta-button cta-outline"><i class="fas fa-toolbox"></i> शेती साहित्य हवे आहे</a>
+            </div>
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section class="features">
+    <section class="block">
         <div class="container">
-            <h2 class="section-title">आमची विशेष वैशिष्ट्ये</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-handshake"></i>
-                    </div>
-                    <h3>सहकारी तत्त्व</h3>
-                    <p>शेतकऱ्यांना एकत्रित करून सामूहिक बळकटी आणि आर्थिक सक्षमीकरण</p>
+            <h2 class="section-title">तुम्हाला काय करायचे आहे?</h2>
+            <div class="action-grid">
+                <div class="action-card">
+                    <div class="big-icon"><i class="fas fa-wheat-awn"></i></div>
+                    <h3>धान्य विका</h3>
+                    <p>तुमच्याकडे विक्रीसाठी धान्य आहे? धान्याचा प्रकार आणि प्रमाण कळवा, आमचा प्रतिनिधी तुमच्याशी संपर्क करेल.</p>
+                    <a href="grain.html?type=sell" class="service-cta">धान्य विक्री चौकशी</a>
                 </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-leaf"></i>
-                    </div>
-                    <h3>जैविक शेती</h3>
-                    <p>पर्यावरणास अनुकूल, टिकाऊ जैविक शेती पद्धतींचे प्रशिक्षण व मार्गदर्शन</p>
+                <div class="action-card">
+                    <div class="big-icon"><i class="fas fa-cart-shopping"></i></div>
+                    <h3>धान्य खरेदी करा</h3>
+                    <p>तुम्हाला धान्य खरेदी करायचे आहे? किती आणि कोणते धान्य हवे ते कळवा, आम्ही मदत करू.</p>
+                    <a href="grain.html?type=buy" class="service-cta">धान्य खरेदी चौकशी</a>
                 </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3>बाजार संपर्क</h3>
-                    <p>थेट बाजारपेठ संपर्क आणि चांगला मोबदला मिळवण्यासाठी सहाय्य</p>
+                <div class="action-card">
+                    <div class="big-icon"><i class="fas fa-toolbox"></i></div>
+                    <h3>शेती साहित्य</h3>
+                    <p>मल्चिंग पेपर, ॲग्रील आणि लहान-मोठी शेती टूल्स, शेतीसाठी लागणारे साहित्य आमच्याकडे मिळेल.</p>
+                    <a href="inputs.html" class="service-cta">साहित्य पहा / मागणी करा</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Services Preview -->
-    <section class="services-preview">
+    <section class="block alt">
         <div class="container">
             <h2 class="section-title">आमच्या सेवा</h2>
             <div class="services-grid">
-                <div class="service-item">
-                    <i class="fas fa-tractor"></i>
-                    <span>शेती उपकरणे भाडे</span>
-                </div>
-                <div class="service-item">
-                    <i class="fas fa-seedling"></i>
-                    <span>गुणवत्तापूर्ण बियाणे</span>
-                </div>
-                <div class="service-item">
-                    <i class="fas fa-graduation-cap"></i>
-                    <span>शेती प्रशिक्षण</span>
-                </div>
-                <div class="service-item">
-                    <i class="fas fa-shopping-cart"></i>
-                    <span>बाजारपेठ संपर्क</span>
-                </div>
-                <div class="service-item">
-                    <i class="fas fa-hand-holding-usd"></i>
-                    <span>आर्थिक मदत</span>
-                </div>
-                <div class="service-item">
-                    <i class="fas fa-truck"></i>
-                    <span>वाहतूक सुविधा</span>
-                </div>
+                <div class="service-item"><i class="fas fa-wheat-awn"></i><span>धान्य खरेदी-विक्री (ट्रेडिंग)</span></div>
+                <div class="service-item"><i class="fas fa-truck"></i><span>धान्य वाहतूक</span></div>
+                <div class="service-item"><i class="fas fa-warehouse"></i><span>धान्य साठवण</span></div>
+                <div class="service-item"><i class="fas fa-toolbox"></i><span>ॲग्री इनपुट्स (शेती साहित्य)</span></div>
             </div>
-            <div style="text-align: center; margin-top: 40px;">
+            <div class="center" style="margin-top: 40px;">
                 <a href="services.html" class="cta-button">सर्व सेवा पहा</a>
             </div>
         </div>
     </section>
 
-    <!-- Stats Section -->
-    <section class="stats">
+    <section class="block">
         <div class="container">
-            <h2 class="section-title">आमची कामगिरी</h2>
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <h3>500+</h3>
-                    <p>सक्रिय सभासद</p>
-                </div>
-                <div class="stat-item">
-                    <h3>1500+</h3>
-                    <p>हेक्टर क्षेत्र</p>
-                </div>
-                <div class="stat-item">
-                    <h3>50+</h3>
-                    <p>गावांचे व्याप्ती</p>
-                </div>
-                <div class="stat-item">
-                    <h3>8</h3>
-                    <p>वर्षांचा अनुभव</p>
-                </div>
+            <h2 class="section-title">कसे काम करते?</h2>
+            <div class="steps">
+                <div class="step"><h3>चौकशी करा</h3><p>वेबसाईटवरचा फॉर्म भरा किंवा फोन / WhatsApp करा.</p></div>
+                <div class="step"><h3>आम्ही संपर्क करतो</h3><p>आमचा प्रतिनिधी तुमच्याशी बोलून तपशील आणि भाव सांगेल.</p></div>
+                <div class="step"><h3>व्यवहार पूर्ण करा</h3><p>गरज असल्यास धान्याची वाहतूक आणि साठवणुकीची सोयही आमच्याकडे.</p></div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <section class="block alt">
+        <div class="container">
+            <h2 class="section-title">आमच्यासोबत का?</h2>
+            <div class="features-grid">
+                <div class="feature-card"><div class="feature-icon"><i class="fas fa-layer-group"></i></div><h3>सगळं एकाच ठिकाणी</h3><p>धान्य व्यापार, वाहतूक, साठवण आणि शेती साहित्य, वेगवेगळ्या ठिकाणी फिरायची गरज नाही.</p></div>
+                <div class="feature-card"><div class="feature-icon"><i class="fas fa-mobile-screen"></i></div><h3>सोपी चौकशी</h3><p>घरबसल्या फॉर्म भरा, फोन करा किंवा WhatsApp वर संपर्क करा.</p></div>
+                <div class="feature-card"><div class="feature-icon"><i class="fas fa-handshake"></i></div><h3>शेतकऱ्यांची कंपनी</h3><p>१००+ सभासद शेतकरी आणि ५ गावांमध्ये आमचे काम सुरू आहे.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="block stats">
+        <div class="container">
+            <h2 class="section-title">आमची कामगिरी</h2>
+            <div class="stats-grid">
+                <div class="stat-item"><h3>100+</h3><p>सक्रिय सभासद</p></div>
+                <div class="stat-item"><h3>100</h3><p>हेक्टर क्षेत्र</p></div>
+                <div class="stat-item"><h3>5</h3><p>गावांमध्ये कार्यरत</p></div>
+                <div class="stat-item"><h3>2</h3><p>वर्षांचा अनुभव</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="band">
+        <div class="container">
+            <h2>आजचा धान्य भाव जाणून घ्यायचा आहे?</h2>
+            <p>फोन किंवा WhatsApp वर थेट संपर्क करा, आमचा प्रतिनिधी तुम्हाला मदत करेल.</p>
+            <div class="hero-actions">
+                <a href="tel:+918275424071" class="cta-button cta-white"><i class="fas fa-phone"></i> 8275424071</a>
+                <a href="https://wa.me/918275424071?text=नमस्कार, मला आजचा धान्य भाव जाणून घ्यायचा आहे." target="_blank" rel="noopener" class="cta-button"><i class="fab fa-whatsapp"></i> WhatsApp करा</a>
+            </div>
+        </div>
+    </section>
+
     <footer>
         <div class="container">
             <div class="footer-container">
                 <div class="footer-logo">
                     <h3>AES AGRITECH</h3>
                     <p>PRODUCER COMPANY LTD.</p>
-                    <p style="margin-top: 15px;">शेतीची प्रगती, शेतकऱ्याची समृद्धी</p>
+                    <p style="margin-top: 12px;">शेतीची प्रगती, शेतकऱ्याची समृद्धी</p>
                 </div>
-                
                 <div class="footer-links">
                     <h4>द्रुत लिंक</h4>
                     <ul>
                         <li><a href="index.html">मुख्यपृष्ठ</a></li>
-                        <li><a href="about.html">आमच्याबद्दल</a></li>
+                        <li><a href="grain.html">धान्य ट्रेडिंग</a></li>
+                        <li><a href="inputs.html">ॲग्री इनपुट्स</a></li>
                         <li><a href="services.html">आमच्या सेवा</a></li>
+                        <li><a href="about.html">आमच्याबद्दल</a></li>
                         <li><a href="registration.html">सभासद नोंदणी</a></li>
                         <li><a href="contact.html">संपर्क</a></li>
                     </ul>
                 </div>
-                
                 <div class="footer-social">
                     <h4>संपर्क साधा</h4>
-                    <p>ए ई एस एग्रिटेक,जालना देलगांव राजा रोड,<br>जालना, महाराष्ट्र</p>
-                    <p>फोन: 8275424071</p>
-                    <div class="social-icons" style="margin-top: 20px;">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-whatsapp"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    <p>AES Agritech, गोंदेगाव,<br>जालना - देऊळगाव राजा रोड,<br>जालना, महाराष्ट्र</p>
+                    <p>फोन: <a href="tel:+918275424071">8275424071</a></p>
+                    <p>ईमेल: <a href="mailto:aesagritech@gmail.com">aesagritech@gmail.com</a></p>
+                    <div class="social-icons">
+                        <a href="https://wa.me/918275424071" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="tel:+918275424071" aria-label="फोन करा"><i class="fas fa-phone"></i></a>
+                        <a href="mailto:aesagritech@gmail.com" aria-label="ईमेल पाठवा"><i class="fas fa-envelope"></i></a>
+                        <a href="https://www.google.com/maps/search/?api=1&query=AES+Agritech+Gondegaon+Jalna+Deulgaon+Raja+Road" target="_blank" rel="noopener" aria-label="Google Maps वर पहा"><i class="fas fa-location-dot"></i></a>
                     </div>
                 </div>
             </div>
-            
             <div class="copyright">
-                <p>© 2023 AES AGRITECH PRODUCER COMPANY LTD. सर्व हक्क राखीव.</p>
+                <p>© <span class="js-year">2026</span> AES AGRITECH PRODUCER COMPANY LTD. सर्व हक्क राखीव.</p>
                 <p>वेबसाइट डिझाईन आणि विकास: AES आयटी विभाग</p>
             </div>
         </div>
     </footer>
 
-    <script>
-        // Mobile menu toggle
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const navMenu = document.getElementById('navMenu');
-        
-        mobileMenuBtn.addEventListener('click', () => {
-            navMenu.classList.toggle('show');
-            mobileMenuBtn.innerHTML = navMenu.classList.contains('show') 
-                ? '<i class="fas fa-times"></i>' 
-                : '<i class="fas fa-bars"></i>';
-        });
-        
-        // Close menu when clicking outside
-        document.addEventListener('click', (event) => {
-            if (!event.target.closest('nav') && !event.target.closest('.mobile-menu-btn')) {
-                navMenu.classList.remove('show');
-                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-            }
-        });
-    </script>
+    <div class="float-buttons">
+        <a href="https://wa.me/918275424071?text=नमस्कार, मला AES Agritech बद्दल माहिती हवी आहे." target="_blank" rel="noopener" class="float-whatsapp" aria-label="WhatsApp वर संपर्क करा"><i class="fab fa-whatsapp"></i></a>
+        <a href="tel:+918275424071" class="float-call" aria-label="फोन करा"><i class="fas fa-phone"></i></a>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
